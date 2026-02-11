@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saint-Valentin</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+ <!-- Vidéo de fond -->
+    <video autoplay muted loop id="bgVideo">
+        <source src="img/video8.mp4" type="video/mp4">
+        Votre navigateur ne supporte pas les vidéos HTML5.
+    </video>
+    <!-- Page d'accueil -->
+         <div id="page1" class="page active">
+        <div class="background"></div>
+         <div class="card">
+            <div class="heart-bg"></div>
+
+           <img src="img/cute1.gif" alt="cute" class="cute-img">
+            <h1>Will you be mine?  🥺💖</h1>
+             <p class="subtitle">
+            Every line of code was written with love 💕,just for you<br> 
+            Life is an incredible journey, and I want to spend every single second of it with you 💕
+        </p>
+            <div class="buttons">
+                <button id="yesBtn">Yes</button>
+                <button id="noBtn">No</button>
+            </div>
+            <p id="message" class="message"></p>
+        </div>
+    </div>
+
+    <!-- Page 2 -->
+    <div id="page2" class="page">
+              <h1>Happy Valentine Day Baby!🌹</h1>
+          <img src="img/cute.gif" alt="cute" class="cute-img">
+        <p>Même si on est loin l’un de l’autre aujourd’hui 🌍💔, mon cœur est tout près du tien 💞. <br>La distance n’a jamais réussi à diminuer ce que je ressens pour toi, au contraire… elle m’a appris à t’aimer encore plus fort 💖.<br> Chaque message de toi me fait sourire 📱😊, chaque appel me rassure 🎧❤️, et chaque pensée de toi réchauffe mon cœur 🔥.<br>
+
+Tu es la première personne à qui je pense en me réveillant 😴💭 et la dernière avant de dormir 🌙🤍.<br> Même sans te toucher, je te sens près de moi 💫. Ton amour me donne de la force 💪❤️ et me rappelle que ce qu’on vit est vrai et précieux 💎.<br>
+
+Parfois la distance fait mal 😔, parfois elle fatigue, mais elle ne me fait jamais douter de nous 💕. <br>Je sais que ce n’est pas facile tous les jours, mais je crois en nous 🫶. <br>Je crois en nos efforts, en notre patience, et en ce beau jour où on pourra enfin se retrouver et se serrer fort 🤗❤️.<br>
+
+J’ai tellement hâte de te voir, de te regarder dans les yeux 😍, de te prendre dans mes bras 🤍 et de rattraper tous les câlins qu’on se doit 🥹💕.<br> Chaque jour qui passe nous rapproche un peu plus de ce moment ⏳✨.<br>
+
+Merci de ne jamais m’abandonner, même à distance 🤍. Merci de faire partie de ma vie, de mes pensées et de mes rêves 🌙💭.<br> Tu es une partie de moi 💘.<br>
+
+Peu importe les kilomètres qui nous séparent 🌍, mon amour pour toi reste le même, fort et sincère ❤️‍🔥.<br> Je te promets de t’aimer aujourd’hui, demain et tous les jours qui suivront 💝.<br>
+
+Je t’aime plus que tout mon cœur ❤️😘<br>
+Bonne Saint-Valentin mon amour 💌✨</p><br>
+        <button id="gameBtn">Are You Ready? Start! 🔥 🎲</button>
+    </div>
+
+    <!-- Page Quiz -->
+    <div id="quizPage" class="page">
+        <h1>Petit quiz 💌</h1>
+         <img src="img/cute2.gif" alt="cute" class="cute-img">
+        <div id="quizContainer"></div>
+        <p id="quizMessage" class="message"></p>
+    </div>
+
+    <!-- Page cadeau -->
+    <div id="giftPage" class="page">
+        <h1> Get Your gift 🎁</h1>
+        <div class="gifts">
+            <button class="giftBtn1"  data-img="img/photo1.jpg">Cadeau 1</button>
+             
+            <button class="giftBtn2" data-img="img/cadeau1.jpg">Cadeau 2</button>
+             
+            <button class="giftBtn3" data-img="img/cadeau1.jpg">Cadeau 3</button>
+            
+        </div>
+    </div>
+
+    <!-- Page final -->
+    <div id="finalPage" class="page">
+        <img id="finalImage" src="" alt="Cadeau">
+        <h1>Tu m'as trouvé ! 💖</h1>
+        <p> C'est moi ton plus beau cadeau cheri ❤️</p>
+    </div>
+
+
+    <script src="scripts.js"></script>
+    <audio id="bgMusic" src="img/Chanson.m4a" autoplay loop></audio>
+
+
+</body>
+</html>
+
