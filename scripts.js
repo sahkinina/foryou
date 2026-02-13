@@ -10,7 +10,7 @@ function createHearts(num = 10) {
         heart.textContent = '💖';
         document.body.appendChild(heart);
 
-        setTimeout(() => heart.remove(), 500);
+        setTimeout(() => heart.remove(), 1000);
     }
 }
 
@@ -195,6 +195,7 @@ yesBtn.addEventListener('click', () => {
 });
 
     });
+
 
 
 
