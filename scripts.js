@@ -45,9 +45,13 @@ document.getElementById('gameBtn').addEventListener('click', () => {
 // Quiz
 const quizQuestions = [
     { q: "Si un jour on avait un animal de compagnie, ce serait…", a: ["serpent 🐍", "Un chat paresseux qui dormirait tout le temps 🐱", "tortue 🐢"], correct: 1 },
-    { q: "Quand on se verra, quelle activité j'aimerais qu’on fasse ensemble ?", a: ["Faire du parachute 🪂", "Rien 😢", "Aller aux jeux dans un parc d’attraction 🎢"], correct: 0 },
-    { q: "Est‑ce que tu m’offriras un bouquet de fleurs le jour où on se verra ?", a: ["Non ", "Non une seule fleur ca suffit 🌷", "Oui, un très beau bouquet 💐"], correct: 2 }
-];
+    { q: "Qui est le plus romantique ?", a: ["Toi 😌", "Moi ", "Les deux 🫶"], correct: 0 },
+    { q: "Qu’est-ce qui te manque le plus chez moi ?", a: ["Ton sourire", "Ton regard ", "Tes calins"], correct: -1 } ,
+    { q: "Quand on se verra, quelle activité j'aimerais qu’on fasse ensemble ?", a: ["Faire du parachute 🪂", "aucune 😢", "rester a la maison"], correct: 0 },
+    { q: "Quand on se dispute (rarement hein 😅), qui fait le premier pas ?", a: ["Moi", "Toi😌", "Personne"], correct: 1 },
+    { q: "Est‑ce que tu m’offriras un bouquet de fleurs le jour où on se verra ?", a: ["Non ", "ca seraa ton dernier 😭 ", "Oui, un joli bouquet 💐"], correct: 2 },
+    { q: "Qui tu aimes le plus ?", a: ["moi", "ta copine ", "encore moi😌 "], correct: -1 } 
+   ];
 
 function startQuiz() {
     const container = document.getElementById('quizContainer');
@@ -68,7 +72,8 @@ function startQuiz() {
 
         document.querySelectorAll('.quizAnswer').forEach(btn => {
             btn.addEventListener('click', (e) => {
-                if (parseInt(e.target.dataset.index) === q.correct) {
+                if (q.correct === -1 || parseInt(e.target.dataset.index) === q.correct) {
+
                     index++;
                     showQuestion();
                 } else {
@@ -164,46 +169,29 @@ yesBtn.addEventListener('click', () => {
         "img/photo20.jpg"
     ];
 
-    // Positions pour chaque image (tu peux ajuster selon ton goût)
-    const positions = [
-        { top: "10%", left: "5%" },   // coin en haut à gauche
-        { top: "10%", left: "70%" },  // coin en haut à droite
-        { top: "50%", left: "5%" },   // coin en bas à gauche
-        { top: "70%", left: "70%" },  // coin en bas à droite
-        { top: "5%", left: "70%" },  // centre
-        { top: "40%", left: "70%" },   // milieu droit
-        { top: "10%", left: "5%" },   // coin en haut à gauche
-        { top: "10%", left: "70%" },  // coin en haut à droite
-        { top: "50%", left: "5%" },   // coin en bas à gauche
-        { top: "70%", left: "70%" },  // coin en bas à droite
-        { top: "5%", left: "70%" },  // centre
-        { top: "40%", left: "70%" },   // milieu droit
-        { top: "10%", left: "5%" },   // coin en haut à gauche
-        { top: "10%", left: "70%" },  // coin en haut à droite
-        { top: "50%", left: "5%" },   // coin en bas à gauche
-        { top: "70%", left: "70%" },  // coin en bas à droite
-        { top: "5%", left: "70%" },  // centre
-        { top: "40%", left: "70%" },   // milieu droit
-        ];
-
     document.querySelectorAll(".giftBtn1, .giftBtn2, .giftBtn3").forEach(btn => {
-        btn.addEventListener("click", () => {
-            page1.classList.remove("active");
-            finalPage.classList.add("active");
+    btn.addEventListener("click", () => {
+        page1.classList.remove("active");
+        finalPage.classList.add("active");
 
-            let index = 0;
+        let index = 0;
+        finalImage.src = images[index];
+        finalImage.style.animation = "popInPhoto 0.6s ease-out";
+
+        // Si un interval existait déjà, on le nettoie
+        if (window.sliderInterval) clearInterval(window.sliderInterval);
+
+        // Boucle diaporama
+        window.sliderInterval = setInterval(() => {
+            index = (index + 1) % images.length;
+
+            // Reset animation pour relancer l'effet petit -> grand
+            finalImage.style.animation = "none";
+            finalImage.offsetHeight; // force reflow pour relancer animation
             finalImage.src = images[index];
-            finalImage.style.position = "absolute"; // nécessaire pour placer l'image
-            finalImage.style.top = positions[index].top;
-            finalImage.style.left = positions[index].left;
-
-            // Boucle infinie
-            setInterval(() => {
-                index = (index + 1) % images.length;
-                finalImage.src = images[index];
-                finalImage.style.top = positions[index].top;
-                finalImage.style.left = positions[index].left;
-            }, 1000);
-        });
+            finalImage.style.animation = "popInPhoto 0.6s ease-out";
+        }, 1500); // 1,5 seconde par photo
     });
 });
+
+    });
