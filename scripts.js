@@ -15,7 +15,7 @@ function createHearts(num = 10) {
 }
 
 // Crée des cœurs en continu
-setInterval(() => createHearts(5), 1000);
+setInterval(() => createHearts(10), 1000);
 
 // Gestion des pages
 function showPage(id) {
@@ -195,6 +195,7 @@ yesBtn.addEventListener('click', () => {
 });
 
     });
+
 
 
 
