@@ -5,12 +5,12 @@ function createHearts(num = 10) {
         heart.classList.add('heart');
         heart.style.top = Math.random() * 100 + 'vh';
         heart.style.left = Math.random() * 90 + 'vw';
-        heart.style.animationDuration = (3+ Math.random() *3) + 's';
+        heart.style.animationDuration = (1+ Math.random() *1.5) + 's';
         heart.style.fontSize = (15 + Math.random() * 10) + 'px';
         heart.textContent = '💖';
         document.body.appendChild(heart);
 
-        setTimeout(() => heart.remove(), 1500);
+        setTimeout(() => heart.remove(), 500);
     }
 }
 
@@ -195,6 +195,7 @@ yesBtn.addEventListener('click', () => {
 });
 
     });
+
 
 
 
